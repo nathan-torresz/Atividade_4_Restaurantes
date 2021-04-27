@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
 
 namespace Atv_4_Restaurantes
 {
@@ -7,8 +8,6 @@ namespace Atv_4_Restaurantes
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Bem vindo à rede de restaurante Mc Donalds!\n" +
-                " ");
             Restaurantes restaurante1 = new Restaurantes();
             restaurante1.Nome = "Nc Donald's BR";
             restaurante1.lanches = new List<Lanches>();
@@ -102,15 +101,23 @@ namespace Atv_4_Restaurantes
                 restaurante4.lanches.Add(nccheddar);
             }
 
-            Console.WriteLine("Para buscar cardápio específico, digite 1\n" +
-                                   "para acessar todos, digite 2 ");
+            string[] vetA = new string[2];
+            Console.WriteLine("Bem vindos à rede de restaurantes Mequi");
+            vetA[0] = "";
+            vetA[1] = "Digite 1 para cardápio específico\n" +
+                "digite 2 para acessar toda a rede";
+            for (int i = 0; i < vetA.Length; i++)
+            {
+                Console.WriteLine(vetA[i]);
+                Thread.Sleep(1500);
+            }
 
 
 
             Console.WriteLine("");
-            int escolha = int.Parse(Console.ReadLine());
+            int num = int.Parse(Console.ReadLine());
 
-            switch (escolha)
+            switch (num)
             {
                 case 1:
                     Console.WriteLine("Digite o nome do país:");
